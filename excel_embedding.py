@@ -22,11 +22,11 @@ def content_to_db(excel_file: str) -> None:
         try:
             _, vector = create_embedding(str(q_value))
         except Exception as exce:
-            print(str(exce))
+            print(exce)
             input("wait for command to retry")
             _, vector = create_embedding(str(q_value))
         storage.add(a_value, vector)
-        print(f"> 完成插入text: [{a_value[0:10]}], embedding: {vector[0:3]}")
+        print(f"> 完成插入text: [{a_value[:10]}], embedding: {vector[:3]}")
 
 
 if __name__ == '__main__':
